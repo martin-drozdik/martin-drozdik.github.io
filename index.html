@@ -25,11 +25,11 @@
             <h1>Martin Drozdík</h1>
             <nav>
             <ul class = "upper">
-                <li class="navigation">Programmer</li>
-                <li class="navigation">Researcher</li>
-                <li class="navigation">My games</li>
-                <li class="navigation">CV</li>
-                <li class="navigation">Reading</li>
+               <!-- <li class="navigation">Programmer</li>-->
+                <li class="navigation"><a class="button" href="#research">Research</a></li>
+                <li class="navigation"><a class="button" href="#games">My games</a></li>
+                <li class="navigation"><a class="button" href="#cv">CV</a></li>
+                <!--<li class="navigation">Reading</li>-->
             </ul>
             </nav>
 
@@ -41,71 +41,63 @@
 
         <h2>About me</h2>
 
-        <p class = "introduction">Hello, I am a re
 
-            condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean tricies mi vitae est. Mauris placerat eleifend
-            leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
-            condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
-            condimentum, eros ipsum rutrum orci
+
+        <p class = "introduction">
+            Hello, I am a researcher in the field of <em>computational intelligence</em>.
+            I am from Slovakia and I live in Nagano, Japan, where
+            I am about to finish my PhD in computer science.
+            I feel most comfortable and confident with C++, but recently I took up JavaScript.
+            In my free time I like to read Sci-fi, especially Robert Heinlein. I will be moving to
+            Lille soon and I am looking for a challenging job in the vicinity of Lille, or London.
         </p>
 
         <img src="img/me-portrait.jpg", alt="Martin Drozdik portrait", class="profile-photo">
 
+        <ul class = "personal-pages">
+            <li><a class="pp" href="http://stackoverflow.com/users/1097451/martin-drozdik">Stack Overflow</a></li>
+            <li><a class="pp" href="https://bitbucket.org/martin_drozdik">BitBucket</a></li>
+            <li><a class="pp" href="https://www.researchgate.net/profile/Martin_Drozdik">ResearchGate</a></li>
+            <li><a class="pp" href="mailto:drozdik.svk@gmail.com">E-Mail</a></li>
+        </ul>
 
-     <!--   <p class = "introduction">Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
-            feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ulultricies mi vitae est. Mauris placerat eleifend
-            leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
-            </p> -->
 
-        <h2>Programmer</h2>
+        <h2 id="research">Research</h2>
 
-        <p>Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
-            feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend
-            leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
-            condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
-            condimentum, eros ipsum rutrum orci</p>
+        <p>My research is about <em>multi-objective optimization</em> using <em>evolutionary computation</em>.
+           <!--Now, let us take that apart:-->
+        <!--</p>-->
+        <!--<h3>Multi-objective optimization</h3>-->
 
-        <h2>Researcher</h2>
+        <!--<p>You are doing your shopping and realize that you are out of toothpaste. You walk to the rack with-->
+            <!--dental products and look at the myriad of different toothpastes. At eye level you see the generic brands-->
+            <!--that-->
+        <!--</p>-->
 
-        <p>Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
-            feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend
-            leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
-            condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
-            condimentum, eros ipsum rutrum orci</p>
 
-        <h2>My games</h2>
+        <h2 id="games">My games</h2>
         <a href="games/xonix/index.html"> <img src="img/xonix-icon.png", alt="Xonix icon", class = "game-icon"></a>
 
-        <h2>CV</h2>
-        <p>Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
-            feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend
-            leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
-            condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
-            condimentum, eros ipsum rutrum orci</p>
-
-        <ul>
-            <li><a href="files/Martin-Drozdik-CV-Academic.pdf">Academic CV</a></li>
-            <li><a href="files/Martin-Drozdik-CV-Professional.pdf">Professional CV</a></li>
+        <h2 id="cv">CV</h2>
+        <ul class = "personal-pages">
+            <li><a class="pp" href="files/Martin-Drozdik-CV-academic.pdf">Academic CV</a></li>
+            <li><a class="pp" href="files/Martin-Drozdik-CV-professional.pdf">Professional CV</a></li>
         </ul>
-        <h2>Reading</h2>
+        <p>If you like my CV and would like to do a similar one, check out my BitBucket for the source code.
+           You can use an online Latex compiler, such as https://www.overleaf.com/ to generate the pdf file for you
+           without installing anything.</p>
+
+        <!--<h2>Reading</h2>-->
 
 
 
-        <p>Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
-            feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend
-            leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
-            condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
-            condimentum, eros ipsum rutrum orci</p>
+        <!--<p>Pellentesque habitant morbi tristique senectus et-->
+            <!--netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,-->
+            <!--feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit-->
+            <!--amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend-->
+            <!--leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,-->
+            <!--condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt-->
+            <!--condimentum, eros ipsum rutrum orci</p>-->
 
 
 

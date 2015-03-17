@@ -96,6 +96,15 @@ h2
 
 }
 
+h3
+{
+    display: inline-block;
+    font-size: 20pt;
+    min-width: 800px;
+    padding-left: 20px;
+
+}
+
 p
 {
     text-align: justify;
@@ -103,6 +112,50 @@ p
     line-height: 1.6em;
     font-size: 16pt;
     padding: 20px;
+}
+
+a.button
+{
+    padding: 10px;
+    background-color: #b3d4fc;
+    text-decoration: none;
+}
+
+a.button:link
+{
+    color: #FF0000;
+}
+
+a.button:hover
+{
+    background-color: crimson;
+}
+
+/* selected link */
+a.button:active
+{
+    color: #0000FF;
+}
+
+a.pp
+{
+    text-decoration: none;
+}
+
+a.pp:link
+{
+    color: #000000;
+}
+
+a.pp:hover
+{
+    color: darkblue;
+}
+
+/* selected link */
+a.pp:active
+{
+    color: red;
 }
 
 p.introduction
@@ -113,12 +166,21 @@ p.introduction
     display: inline;
 }
 
+.personal-pages
+{
+    width: 240px;
+    float: left;
+    padding: 20px;
+    list-style-type: none;
+    text-align: left;
+    font-size: 24pt;
+    line-height: 1.6em;
+}
+
 .navigation
 {
     list-style-type: none;
     display: inline;
-    padding: 10px;
-    background-color: #b3d4fc;
     font-weight: bold;
     font-size: 16pt;
 }
