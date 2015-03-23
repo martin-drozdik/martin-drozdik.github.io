@@ -44,6 +44,7 @@ Level.prototype =
 {
     initialize : function(difficulty)
     {
+        this.gameState.previousFull = 0;
         this.gameState.percentage = 0;
         this.player = new Player(this.width / 2, 0, this);
         this.field = new Array(this.width);
