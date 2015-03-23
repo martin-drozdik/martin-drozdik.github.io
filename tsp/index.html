@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #canvas
+        {
+            background: url("images/USA.svg") no-repeat;
+            background-size: 100%;
+            border: 2px solid;
+        }
+        #page
+        {
+            margin: 20px auto 20px auto;
+            width: 960px;
+        }
+        #controls
+        {
+
+            padding-left: 0px;
+            margin: 0;
+            list-style-type: none;
+            text-align: left;
+            font-size: 24pt;
+            line-height: 1.6em;
+        }
+        #clear
+        {
+            width: 880px;
+            padding: 10px;
+            background-color: #b3d4fc;
+            text-decoration: none;
+        }
+        #clear:link
+        {
+            color: #FF0000;
+        }
+        #clear:hover
+        {
+            background-color: crimson;
+        }
+        #clear:active
+        {
+            color: #0000FF;
+        }
+    </style>
+</head>
+<body>
+<div id="page">
+    <canvas id="canvas"></canvas>
+    <ul id="controls">
+        <!--<li id = "save">Save</li>-->
+        <li id = "clear">Clear</li>
+    </ul>
+</div>
+<script src="geometry.js"></script>
+<script src="city.js"></script>
+<script src="cities.js"></script>
+<script src="path.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -10,12 +10,13 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
-
+        <link rel="stylesheet" href="tsp/tsp.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser.
+                Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
     <div id="page">
@@ -29,19 +30,14 @@
                 <li class="navigation"><a class="button" href="#research">Research</a></li>
                 <li class="navigation"><a class="button" href="#games">My games</a></li>
                 <li class="navigation"><a class="button" href="#cv">CV</a></li>
+                <li class="navigation"><a class="button" href="#publications">My publications</a></li>
                 <!--<li class="navigation">Reading</li>-->
             </ul>
             </nav>
 
         </header>
 
-
-
-
-
-        <h2>About me</h2>
-
-
+        <h2>About me</h2> <!------------------------------------------------------------------------------------------>
 
         <p class = "introduction">
             Hello, I am a researcher in the field of <em>computational intelligence</em>.
@@ -65,15 +61,167 @@
         <h2 id="research">Research</h2>
 
         <p>My research is about <em>multi-objective optimization</em> using <em>evolutionary computation</em>.
-           <!--Now, let us take that apart:-->
-        <!--</p>-->
-        <!--<h3>Multi-objective optimization</h3>-->
+           Now, let us disassemble that into smaller pieces. At first, we look at <em>optimization</em>.
+        </p>
+        <h3>Optimization</h3>
+        <p>
+            Suppose that you want to go on a round trip around USA. You select the cities you want to visit and mark them
+            on a map. Suppose you can fly from one city to another in a straight line. What is the <em>shortest path</em>
+            that visits each city and gets you back to where you started?
 
-        <!--<p>You are doing your shopping and realize that you are out of toothpaste. You walk to the rack with-->
-            <!--dental products and look at the myriad of different toothpastes. At eye level you see the generic brands-->
-            <!--that-->
-        <!--</p>-->
+            Try to connect all the cities using a <em>shortest</em> possible route. You choose a starting point by clicking
+            on an arbitrary city. (My best route is 10572.92 Miles).
+        </p>
 
+        <canvas id="canvas"></canvas>
+        <ul id="controls">
+            <li id = "clear">Clear</li>
+        </ul>
+
+        <p>
+            Seems easy enough. However, if you found the shortest route to this particular problem in 1962,
+            <a href="http://www.math.uwaterloo.ca/tsp/history/pictorial/car54.html">you would win $10 000</a>,
+            which is about $80 000 adjusted for inflation. "So where is the catch? Surely anybody with a computer
+            can just run through all the possible routes." you ask. The catch is that there are
+            131 565 418 466 846 765 083 609 006 080 000 000 possible tours around these particular 33 cities. If you used a
+            computer which checks a billion solutions per second, it would take 4 171 382 957 097 234 149 years to enumerate
+            all solutions. All this trouble just to plan a trip around 33 cities.
+        </p>
+
+        <p>
+            "Surely we can do better than go through all possible solutions." You say. And you're right. And this is
+            what optimization is all about. The term <em>optimization</em> has many meanings in today's word. You could
+            hear people speaking about optimizing their daily routine, programmers speaking about optimizing their programs
+            and so on. My research is about <em>mathematical optimization</em>. That is the task of constructing a
+            solution to a mathematical problem, <em>that is best</em> in some well defined sense, and hopefully finishing
+            before the <a href="http://en.wikipedia.org/wiki/Heat_death_of_the_universe">heat death of the universe</a>.
+        </p>
+
+        <h3>Evolutionary computation</h3>
+
+        <p>
+            Life is hard. The environment is full of dangers and it is constantly changing. Yet it is full of
+            living organisms which successfully inhabit this planet for billions of years.
+            Each individual living being is a survival expert in their particular domain.
+            For example, the <a href="http://en.wikipedia.org/wiki/Arctic_hare">arctic rabbit</a> is a survival expert
+            in the domain of northern Canada.
+            With a little bit of imagination, we can consider each individual arctic rabbit to be nature's solution
+            to the mathematical problem of constructing a living machine capable of surviving in the arctic.
+            Looking at how successful nature is in creating complicated solutions such as the arctic rabbit, humans
+            tried to imitate evolution to solve mathematical problems.
+        </p>
+
+        <p>
+            Evolution works on two levels, the <em>genetic</em> level, and the <em>environmental</em> level. On each level,
+            there are two fundamental concepts: mating and survival of the fittest at the environmental level, and
+            crossover and mutation on the genetic level.
+        </p>
+
+        <img src="tsp/images/evolution-in-a-nutshell.svg" alt="Evolution in a nutshell" class="full-page-image">
+
+        <p>
+            In a population of rabbits, there is always competition for mating. Female rabbits prefer partners, whom
+            they consider strong and <em>fit</em>. One way the female rabbits possibly do this is by looking at the white fluffy
+            tails for signs of diarrhea.<sup><a href="#fn1" id="ref1">1</a></sup> Rabbits with better genes, who have
+            stronger immunity systems, have a smaller chance to contract diarrhea, and hence a higher chance to be chosen
+            by the females for mating. Therefore ''better genes'' have a higher chance to proliferate.
+        </p>
+        <p>
+            When rabbits mate, their DNA is recombined using
+            <a href="http://en.wikipedia.org/wiki/Chromosomal_crossover">crossover</a> to create the DNA of a brand new rabbit.
+            The baby rabbit gets some proportion of his genetic code from his father and some from his mother.
+            This way, he may inherit some good or bad traits from his parents.
+            In addition, his DNA is altered a little by random errors in the DNA replication process.
+            The introduction of these errors is called mutation. However, in this article I want to concentrate mainly on crossover.
+        </p>
+        <p>
+            Once a baby rabbit is born, he has to prove himself, by surviving in the harsh environment. If the offspring
+            rabbit inherited bad genes from his parents, he will have a smaller chance of surviving until maturity and
+            a smaller chance to reproduce and pass these bad genes on. On the other hand, if he inherited good genes,
+            he has a higher chance to have many children himself, and to proliferate his genes further.
+        </p>
+        <p>
+            Now let us look at how we can use the ideas of evolution in the task of finding the best round trip through
+            the 33 cities.
+            First of all, we need DNA. That is, we need some concise way on how to encode a solution to
+            the road trip problem. One possible way is to give each city a number like this:
+        </p>
+        <img src="tsp/images/numbered-cities.png" alt="Numbered cities" class="full-page-image">
+        <p>
+            Then each road trip can be represented as a sequence of numbers 1 to 33. Now that we have a genetic representation,
+            we can manipulate the individual road trips in interesting ways. Let us take 2 random road trips, one illustrated in
+            blue, and one in red.
+        </p>
+
+        <img src="tsp/images/path-in-order.png" alt="Illustration of order crossover" class="half-page-image">
+        <img src="tsp/images/path-complementary.png" alt="Illustration of order crossover" class="half-page-image">
+
+        <p>
+            Each trip has its own genome, which is illustrated in the picture bellow. Now let us suppose that these two
+            road trips are going to mate, to create children. We need some way in which to combine the red genome
+            and the blue one, so that we get a valid genome of some other road trip around all the cities. For example, we
+            do not want to visit one city twice. Similarly, when constructing rabbits, nature ensures that the resulting rabbit does
+            not have two tails.
+        </p>
+
+        <img src="tsp/images/good-offspring-genotype.svg" alt="Crossover creating a good offspring" class="full-page-image">
+
+        <p>
+            One way to do it for the road trip problem is the so-called order crossover.<sup><a href="#fn2" id="ref2">2</a></sup>
+            The procedure is illustrated in the image above. At first, an arbitrary block of symbols is inherited from the
+            first parent (the red genome). Next, symbols are inherited one by one from the second parent, but <em>only</em>
+            if they are not already present in the offspring. This ensures that each symbol is present in the offspring exactly once.
+            Once the genome of the offspring is generated, we can construct the round trip corresponding to this genome:
+        </p>
+
+        <img src="tsp/images/good-child.png" alt="Crossover creating a good offspring" class="full-page-image">
+        <p>
+            Here we see a remarkable thing. <em>The offspring has a shorter length than both of its parents!</em>
+            Looking at the image closely, we see the reason behind this. The blue parent makes a lot of unnecessary trips
+            in the east (right) part of the map. The offspring however does not inherit this faulty sequence, but instead inherits
+            the eastern part of the trip from the red parent, who performs quite well on this part of the map.
+            Conversely, the red parent stumbles in the western part of the map, but the offspring inherits the western part
+            from the blue parent, who fares very well.
+
+            However, an offspring does not necessarily inherit the good traits of its parents. If the block inherited
+            from the red parent was a little different, such as in the following picture:
+        </p>
+
+        <img src="tsp/images/bad-offspring-genotype.svg" alt="Crossover creating a good offspring" class="full-page-image">
+        <p>
+            The resulting offspring would still inherit the good western part from the red parent and the good eastern part
+            from the blue parent, but in a way that would combine them very clumsily. We can see this in the following picture.
+        </p>
+        <img src="tsp/images/bad-child.png" alt="Crossover creating a bad offspring" class="full-page-image">
+
+        <p>
+            This is where the <em>survival of the fittest</em> comes into play. Let us suppose that we began with 100 randomly
+            generated genomes and by mating we generated 100 more. Now, we have 200 individuals. Each producing a round trip
+            of a different length. What we usually do at this point is to pick the <em>worst</em> 100 individuals, that is 100
+            individuals producing <em>longest</em> round trip, and to delete them from the population. This way we ensure that
+            bad gene sequences do not propagate further.
+        </p>
+
+
+        <h3>Multi-objective optimization</h3>
+
+        <p>
+            Coming soon.
+        </p>
+
+        <h3>Multi-objective optimization using evolutionary computation</h3>
+
+        <p>
+            Coming soon.
+        </p>
+
+
+        <hr>
+
+        <p>
+            <sup id="fn1">1. The Selfish Gene, Richard Dawkins<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
+            <sup id="fn1">2. Introduction to Evolutionary Computing, Eiben, A.E., Smith, James E.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup>
+        </p>
 
         <h2 id="games">My games</h2>
         <a href="games/xonix/index.html"> <img src="img/xonix-icon.png", alt="Xonix icon", class = "game-icon"></a>
@@ -87,26 +235,18 @@
            You can use an online Latex compiler, such as https://www.overleaf.com/ to generate the pdf file for you
            without installing anything.</p>
 
-        <!--<h2>Reading</h2>-->
-
-
-
-        <!--<p>Pellentesque habitant morbi tristique senectus et-->
-            <!--netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,-->
-            <!--feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit-->
-            <!--amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend-->
-            <!--leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,-->
-            <!--condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt-->
-            <!--condimentum, eros ipsum rutrum orci</p>-->
-
-
-
-
-
-
-
-
-
+        <h2 id="publications">My publications</h2>
+        <ul class = "publications">
+            <li><a class="pp" href="files/An Analysis of Differential Evolution Parameters on Rotated Bi-objective Optimization Functions.pdf">
+                An Analysis of Differential Evolution Parameters on Rotated Bi-objective Optimization Functions</a></li>
+            <li><a class="pp" href="files/Computational Cost Reduction of Non-dominated Sorting Using the M-front.pdf">
+                Computational Cost Reduction of Non-dominated Sorting Using the M-front</a></li>
+            <li><a class="pp" href="files/Attempt to Reduce the Computational Complexity in Multi-objective Differential Evolution Algorithms.pdf">
+                Attempt to Reduce the Computational Complexity in Multi-objective Differential Evolution Algorithms</a></li>
+            <li><a class="pp" href="files/Comparison of Parameter Control Mechanisms in Multi-objective Differential Evolution.pdf">
+                Comparison of Parameter Control Mechanisms in Multi-objective Differential Evolution</a></li>
+            <li><a class="pp" href="files/Improvements in Understanding and Performance of Multi-objective Differential Evolution.pdf">My PhD thesis</a></li>
+        </ul>
 
     </div>
 
@@ -116,16 +256,6 @@
 
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <!--<script>-->
-            <!--(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=-->
-            <!--function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;-->
-            <!--e=o.createElement(i);r=o.getElementsByTagName(i)[0];-->
-            <!--e.src='//www.google-analytics.com/analytics.js';-->
-            <!--r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));-->
-            <!--ga('create','UA-XXXXX-X','auto');ga('send','pageview');-->
-        <!--</script>-->
 
 
         <script>
@@ -138,5 +268,11 @@
             ga('send', 'pageview');
 
         </script>
+        <script src="tsp/geometry.js"></script>
+        <script src="tsp/city.js"></script>
+        <script src="tsp/cities.js"></script>
+        <script src="tsp/path.js"></script>
+        <script src="tsp/crossover.js"></script>
+        <script src="tsp/main.js"></script>
     </body>
 </html>

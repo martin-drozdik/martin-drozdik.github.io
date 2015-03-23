@@ -367,9 +367,12 @@ Level.prototype =
             this.replaceField(this.FIELD.RIGHT_EVALUATED, this.FIELD.FULL);
         }
 
+
         var full = this.computeFullFields();
+        var delta =  full.nFields - this.gameState.previousFull;
+        this.gameState.previousFull = full.nFields;
         this.gameState.percentage = full.percentage;
-        this.gameState.score += full.nFields;
+        this.gameState.score += delta;
     }
 };
 

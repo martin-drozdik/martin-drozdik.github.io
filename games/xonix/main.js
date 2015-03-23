@@ -2,7 +2,7 @@
 
 ;(function()
 {
-    var gameState = {score: 0, lives: 3, level: 1, percentage: 0};
+    var gameState = {score: 0, lives: 3, level: 1, percentage: 0, previousFull : 0};
 
     window.onload = function()
     {
